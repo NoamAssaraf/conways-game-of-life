@@ -1,3 +1,0 @@
-/Users/noamassaraf/Desktop/Projects/conways-game-of-life/build/CMakeFiles/GameOfLife.dir
-/Users/noamassaraf/Desktop/Projects/conways-game-of-life/build/CMakeFiles/edit_cache.dir
-/Users/noamassaraf/Desktop/Projects/conways-game-of-life/build/CMakeFiles/rebuild_cache.dir
