@@ -1,18 +1,19 @@
 #include <iostream>
 #include "GameOfLife.hpp"
+#include <thread>
+#include <chrono>
 
 int main() {
     const int ROW =10;
     const int COL =20;
     GameOfLife game(ROW, COL);
-    game.printGrid();
-
-    std::cout << "gen 0 ->1" << std::endl;
-    game.updateGrid();
-    game.printGrid();  
-
-    std::cout << "gen 1 ->2" << std::endl;
-    game.updateGrid();
-    game.printGrid();
+    for (int i=0; i<50; i++){
+        std::cout << "\x1B[2J\x1B[H";
+        game.printGrid();
+        if (!game.updateGrid()) {
+            break;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    }
     return 0;
 }
