@@ -10,5 +10,5 @@ class GameOfLife {
     public:
     GameOfLife(int rows, int cols);
     void printGrid() const;
-    void updateGrid();
+    bool updateGrid();
 };

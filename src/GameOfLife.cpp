@@ -38,20 +38,25 @@ int GameOfLife::countNeighbors(int row, int col) const{
     return count; 
 }
 
-void GameOfLife::updateGrid() {
+bool GameOfLife::updateGrid() {
     std::vector<std::vector<int>> nextGrid = grid;
+    bool changed = false;
     for (int i = 0; i < grid.size(); ++i) {
         for (int j = 0; j < grid[0].size(); ++j) {
             int neighbors = countNeighbors(i, j);
             if (grid[i][j] == 1) {
                 if (neighbors < 2 || neighbors > 3) {
                     nextGrid[i][j] = 0; // Cell dies
+                    changed = true;
                 }
             } else {
                 if (neighbors == 3) {
                     nextGrid[i][j] = 1; // Cell becomes alive
+                    changed = true;
                 }
             }
         }
     }
-    grid.swap(nextGrid);}
+    grid.swap(nextGrid);
+    return changed;
+}
