@@ -1,14 +1,6 @@
 #include "GameOfLife.hpp"
 
-GameOfLife::GameOfLife(int rows, int cols): grid(rows, std::vector<int>(cols, 0)){
-if (rows > 3 && cols > 3) {
-    grid[0][1] = 1;
-    grid[1][2] = 1;
-    grid[2][0] = 1;
-    grid[2][1] = 1;
-    grid[2][2] = 1;
-}
-}
+GameOfLife::GameOfLife(int rows, int cols): grid(rows, std::vector<int>(cols, 0)){}
 
 void GameOfLife::printGrid() const{
     for (const auto& row : grid) {
@@ -59,4 +51,20 @@ bool GameOfLife::updateGrid() {
     }
     grid.swap(nextGrid);
     return changed;
+}
+
+void GameOfLife::setGliderPattern() {
+    int rows = grid.size();
+    int cols = grid[0].size();
+    if (rows >= 4 && cols >=4) {
+    grid[1][2] = 1;
+    grid[2][3] = 1;
+    grid[3][1] = 1;
+    grid[3][2] = 1;
+    grid[3][3] = 1;
+    }
+    else{
+        if (rows >= 1 && cols >=1) 
+    grid[0][0] = 1; 
+    }
 }

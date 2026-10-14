@@ -11,4 +11,5 @@ class GameOfLife {
     GameOfLife(int rows, int cols);
     void printGrid() const;
     bool updateGrid();
+    void setGliderPattern();
 };
